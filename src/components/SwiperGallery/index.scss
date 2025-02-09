@@ -1,0 +1,35 @@
+$galleryHeight: calc(100vh - 110px); // todo: придумать что-нибудь, чтобы мы могли определять высоту свайпера извне
+
+.gallery {
+  width: 100%;
+  max-height: 100%;
+
+  &-container {
+
+    width: 100%;
+    height: $galleryHeight;
+
+    overflow-x: auto;
+    position: relative; // если будем добавлять какие-либо элементы еще
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory; // добавляет свайп-эффект с остановкой на фотографии
+    display: flex;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &-item {
+      border: 1px solid red;
+      min-width: 100%;
+      height: $galleryHeight;
+      text-align: center;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: fill;
+  }
+}
