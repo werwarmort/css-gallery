@@ -13,6 +13,8 @@ $galleryHeight: calc(100vh - 110px); // todo: придумать что-нибу
     position: relative; // если будем добавлять какие-либо элементы еще
     scrollbar-width: none;
     scroll-snap-type: x mandatory; // добавляет свайп-эффект с остановкой на фотографии
+    // mandatory - прокрутка остановится в точках привязки scroll-snap-align
+    // proximity - делает залипание менее строгим (срабатывает только при медленной прокрутке).
     display: flex;
 
     &::-webkit-scrollbar {
@@ -20,10 +22,14 @@ $galleryHeight: calc(100vh - 110px); // todo: придумать что-нибу
     }
 
     &-item {
-      border: 1px solid red;
-      min-width: 100%;
+       min-width: 100%;
       height: $galleryHeight;
       text-align: center;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+
+      background: url('/loader.gif') center center no-repeat;
+      background-size: 50px 50px ;
     }
   }
 
